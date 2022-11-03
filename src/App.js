@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import FirstComponent from "./Components/FirstComponent";
+import ClassComp from "./Components/ClassComp";
+import Posts from "./Components/Posts";
+import ComponentA from "./Components/ComponentA";
+import { createContext, useState } from "react";
+import Forms from "./Components/Forms";
+import ClassLC from "./Components/ClassLC";
+import FuncLC from "./Components/FuncLC";
+import ApiComp from "./Components/ApiComp";
+
+export const messageContext = createContext(null);
 
 function App() {
+  const [mount, setMount] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <FirstComponent/> */}
+      {/* <FirstComponent
+        name="Sam"
+        age={10}
+        isValid={true}
+        arr={[1, 2, 3]}
+        // obj={{
+        //   user: "user1",
+        //   key: "val"
+        // }}
+      >
+        {{
+          user: "user1",
+          key: "val"
+        }}
+      </FirstComponent> */}
+      {/* <div>
+        Inner text
+      </div>
+      <Posts/> */}
+      {/* <Posts/> */}
+      {/* <messageContext.Provider value={"A message from App.js"} >
+        <ComponentA />
+      </messageContext.Provider> */}
+      {/* <Forms/> */}
+      {/* {mount && <FuncLC />}
+      <button onClick={() => setMount(!mount)}>(Un)Mount</button>
+      <FuncLC/> */}
+      <ApiComp/>
     </div>
   );
 }
