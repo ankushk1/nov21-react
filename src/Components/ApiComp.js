@@ -7,7 +7,7 @@ const ApiComp = () => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    const data = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data = await fetch("https://jsonplaceholder.typicode.com/posts");
     const json = await data.json();
     setData(json);
   };

@@ -7,7 +7,8 @@ const Forms = () => {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
-    password: ""
+    password: "",
+    car: []
   });
 
   // const onFirstNameChange = (event) => {
@@ -22,8 +23,13 @@ const Forms = () => {
   //   setUser({ ...user, password: event.target.value });
   // };
 
-  const onInputChange = (event, fieldName) => {
-    setUser({ ...user, [fieldName]: event.target.value });
+  const onInputChange = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const onMultiSelect = (event) => {
+    user.car.push(event.target.value);
+    setUser({ ...user, car: user.car });
   };
 
   return (
@@ -34,24 +40,35 @@ const Forms = () => {
           type="text"
           placeholder="First Name"
           value={user.firstName}
-          onChange={(event) => onInputChange(event, "firstName")}
+          name="firstName"
+          onChange={(event) => onInputChange(event)}
         />
         <input
           type="text"
           placeholder="Last Name"
           value={user.lastName}
-          onChange={(event) => onInputChange(event, "lastName")}
+          name="lastName"
+          onChange={(event) => onInputChange(event)}
         />
         <input
           type="password"
           placeholder="password"
           value={user.password}
-          onChange={(event) => onInputChange(event, "password")}
+          name="password"
+          onChange={(event) => onInputChange(event)}
         />
+        <input type="text" value={user.car.join(",")} />
+        <select name="car" onChange={(event) => onMultiSelect(event)}>
+          <option value={1}>Car 1</option>
+          <option value={2}>Car 2</option>
+          <option value={3}>Car 3</option>
+        </select>
       </form>
       <div>
         first name - {user.firstName} <br />
         last name - {user.lastName}
+        <br />
+        password - {user.password}
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ const FirstComponent = (props) => {
   const onIncrement2 = (num) => {
     setState({
       ...state,
-      count2: state.count2 + 1
+      count2: state.count2 + num
     });
   };
 

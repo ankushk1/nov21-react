@@ -9,6 +9,7 @@ import Forms from "./Components/Forms";
 import ClassLC from "./Components/ClassLC";
 import FuncLC from "./Components/FuncLC";
 import ApiComp from "./Components/ApiComp";
+import UseReducerHook from "./Components/UseReducerHook";
 
 export const messageContext = createContext(null);
 
@@ -40,11 +41,12 @@ function App() {
       {/* <messageContext.Provider value={"A message from App.js"} >
         <ComponentA />
       </messageContext.Provider> */}
-      {/* <Forms/> */}
+      <Forms/>
       {/* {mount && <FuncLC />}
       <button onClick={() => setMount(!mount)}>(Un)Mount</button>
       <FuncLC/> */}
-      <ApiComp/>
+      {/* <ApiComp/> */}
+      {/* <UseReducerHook/> */}
     </div>
   );
 }
