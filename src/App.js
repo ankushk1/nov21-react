@@ -10,6 +10,10 @@ import ClassLC from "./Components/ClassLC";
 import FuncLC from "./Components/FuncLC";
 import ApiComp from "./Components/ApiComp";
 import UseReducerHook from "./Components/UseReducerHook";
+import UseMemoHook from "./Components/UseMemoHook";
+import UseCallbackHook from "./Components/UseCallbackHook";
+import SignInForm from "./Components/SignInForm";
+import ThemeToggle from "./Components/ThemeToggle";
 
 export const messageContext = createContext(null);
 
@@ -41,12 +45,17 @@ function App() {
       {/* <messageContext.Provider value={"A message from App.js"} >
         <ComponentA />
       </messageContext.Provider> */}
-      <Forms/>
+      {/* <Forms/>
+      <SignInForm/> */}
       {/* {mount && <FuncLC />}
       <button onClick={() => setMount(!mount)}>(Un)Mount</button>
       <FuncLC/> */}
       {/* <ApiComp/> */}
       {/* <UseReducerHook/> */}
+      {/* <UseMemoHook/> */}
+      {/* <UseCallbackHook/> */}
+      <ThemeToggle/>
+     
     </div>
   );
 }

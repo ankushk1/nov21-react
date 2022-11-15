@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import ItemDetails from "./ItemDetails";
+import './ApiComp.css'
 
 const ApiComp = () => {
   const [data, setData] = useState([]);
@@ -17,13 +18,14 @@ const ApiComp = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h3>Todos</h3>
       {data.length == 0 ? (
-        <pre>Loading...</pre>
+        <div >Loading...</div>
       ) : (
         data.map((elem, index) => (
-            <ItemDetails key={index} id={elem.id} title={elem.title} 
+            <ItemDetails 
+             key={index} id={elem.id} title={elem.title} styleClass="text-white"
               completed={elem.completed}
             />
         ))
