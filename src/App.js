@@ -14,6 +14,10 @@ import UseMemoHook from "./Components/UseMemoHook";
 import UseCallbackHook from "./Components/UseCallbackHook";
 import SignInForm from "./Components/SignInForm";
 import ThemeToggle from "./Components/ThemeToggle";
+import Counter from "./HOC/Counter";
+import Hover from "./HOC/Hover";
+import Todoss from "./HOC/Todoss";
+import Postss from "./HOC/Postss";
 
 export const messageContext = createContext(null);
 
@@ -54,7 +58,12 @@ function App() {
       {/* <UseReducerHook/> */}
       {/* <UseMemoHook/> */}
       {/* <UseCallbackHook/> */}
-      <ThemeToggle/>
+      {/* <ThemeToggle/> */}
+
+      {/* <Counter name="Ankush"/>
+      <Hover/> */}
+      <Todoss/>
+      <Postss/>
      
     </div>
   );

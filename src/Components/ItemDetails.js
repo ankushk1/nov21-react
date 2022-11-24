@@ -5,7 +5,7 @@ const ItemDetails = (props) => {
   const { id, title, completed, styleClass } = props;
   return (
     <div style={{
-      color:"blue"
+      // color:"blue"
     }}>
       <pre>{id}</pre>
       <pre>{title}</pre>
