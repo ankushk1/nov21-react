@@ -18,6 +18,11 @@ const Home = () => {
         city: "Delhi"
       }
     })
+
+    // V5
+    // navigate(-1, {
+      // state
+    // })
     
     // V5 in history, hooks name was useHistory
     // history.push("/users")

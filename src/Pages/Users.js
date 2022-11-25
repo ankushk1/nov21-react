@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 const Users = (props) => {
 
@@ -8,7 +8,10 @@ const Users = (props) => {
   // props.location
 
   const location = useLocation()
-  console.log(location);
+
+  const params = useParams()
+  console.log(params);
+
 
   return (
     <div>Users</div>
