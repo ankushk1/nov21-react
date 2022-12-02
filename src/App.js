@@ -18,6 +18,8 @@ import Counter from "./HOC/Counter";
 import Hover from "./HOC/Hover";
 import Todoss from "./HOC/Todoss";
 import Postss from "./HOC/Postss";
+import CounterRedux from "./Components/CounterRedux";
+import Todo from "./Components/Todo";
 
 export const messageContext = createContext(null);
 
@@ -62,8 +64,10 @@ function App() {
 
       {/* <Counter name="Ankush"/>
       <Hover/> */}
-      <Todoss/>
-      <Postss/>
+      {/* <Todoss/>
+      <Postss/> */}
+      <CounterRedux/>
+      <Todo/>
      
     </div>
   );

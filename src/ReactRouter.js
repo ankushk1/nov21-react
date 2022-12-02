@@ -1,5 +1,6 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
+import CounterRedux from './Components/CounterRedux'
 import Todo from './Components/Todo'
 import ContactInfo from './Pages/ContactInfo'
 import Home from './Pages/Home'
@@ -13,7 +14,7 @@ const ReactRouter = () => {
       <Routes >
         {/* V5 */}
         {/* <Route path='/' />  component={Home} */}
-        <Route path='/' element={<Todo/>}/>
+        <Route path='/' element={<CounterRedux/>}/>
         {/* <Route path='/users/' element={<Users/>}/>
         <Route path='/contact' element={<ContactInfo/>}/> */}
       </Routes>
