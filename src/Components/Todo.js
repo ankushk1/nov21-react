@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { setTodos } from "../actions/todoActions";
 import TodoDetails from "./TodoDetails";
 
 const Todo = () => {
-
-  const storeState = useSelector(state => state.count)
-  console.log('storeState in Todo ==>', storeState);
+  const todosSelector = useSelector((state) => {
+    console.log(state);
+    return state.todoData.todos});
+  // console.log('storeState in Todo ==>', storeState);
   const ALL = "ALL";
   const PENDING = "PENDING";
   const COMPLETED = "COMPLETED";
+  const dispatch = useDispatch();
 
   const [input, setInput] = useState("");
-  const [todoArr, setTodoArr] = useState(() => {
-    const todosFromLS = JSON.parse(localStorage.getItem('todos')) ?? [];
-    return todosFromLS;
-  });
+  const [todoArr, setTodoArr] = useState(
+    // () => {
+    //   const todosFromLS = JSON.parse(localStorage.getItem('todos')) ?? [];
+    //   return todosFromLS;
+    // }
+    []
+  );
+
+  useEffect(() => {
+    console.log(todosSelector);
+    setTodoArr(todosSelector);
+  }, [todosSelector]);
+
   const [isEditing, setIsEditing] = useState({ edit: false, todoId: "" });
   const [filter, setFilter] = useState(ALL);
 
@@ -73,8 +85,9 @@ const Todo = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todoArr))
-  }, [todoArr])
+    // localStorage.setItem("todos", JSON.stringify(todoArr))
+    dispatch(setTodos(todoArr));
+  }, [todoArr]);
 
   return (
     <div className="container">
@@ -130,35 +143,41 @@ const Todo = () => {
             />
           ))}
         {todoArr.length > 0 &&
-          filter === COMPLETED && todoArr.map((todo) => (
-            todo.completed && <TodoDetails
-              key={todo.id}
-              todo={todo}
-              onEditHandler={onEditHandler}
-              onDeleteTodo={onDeleteTodo}
-              isEditing={isEditing}
-              onCompleteHandler={onCompleteHandler}
-            />
-          ))}
-          {todoArr.length > 0 &&
-          filter === PENDING && todoArr.map((todo) => (
-            !todo.completed && <TodoDetails
-              key={todo.id}
-              todo={todo}
-              onEditHandler={onEditHandler}
-              onDeleteTodo={onDeleteTodo}
-              isEditing={isEditing}
-              onCompleteHandler={onCompleteHandler}
-            />
-          ))}
+          filter === COMPLETED &&
+          todoArr.map(
+            (todo) =>
+              todo.completed && (
+                <TodoDetails
+                  key={todo.id}
+                  todo={todo}
+                  onEditHandler={onEditHandler}
+                  onDeleteTodo={onDeleteTodo}
+                  isEditing={isEditing}
+                  onCompleteHandler={onCompleteHandler}
+                />
+              )
+          )}
+        {todoArr.length > 0 &&
+          filter === PENDING &&
+          todoArr.map(
+            (todo) =>
+              !todo.completed && (
+                <TodoDetails
+                  key={todo.id}
+                  todo={todo}
+                  onEditHandler={onEditHandler}
+                  onDeleteTodo={onDeleteTodo}
+                  isEditing={isEditing}
+                  onCompleteHandler={onCompleteHandler}
+                />
+              )
+          )}
       </div>
     </div>
   );
 };
 
 export default Todo;
-
-
 
 // JSON.parse
 // JSON.stringify

@@ -1,11 +1,10 @@
 import { INCREMENT, DECREMENT, RESET } from "../actions/Contants";
 
 const initialState = {
-  count: 0
+  count: 0,
 };
 
 const counterReducer = (state = initialState, action) => {
-  debugger
   switch (action.type) {
     case INCREMENT:
       return { ...state, count: state.count + 1 };

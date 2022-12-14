@@ -7,13 +7,14 @@ import { IncrementCount, DecrementCount, ResetCount } from '../actions/counterAc
 
 const CounterRedux = () => {
 
-  const storeState = useSelector(state => state.count)
+  const storeState = useSelector(state => state.countData.count)
   console.log('storeState ==>', storeState);
   const dispatch = useDispatch();
 
   const [count, setCount] = useState(0)
 
   useEffect(() => {
+    console.log('UseEffect')
     setCount(storeState)
   },[storeState])
 
@@ -50,3 +51,9 @@ const CounterRedux = () => {
 }
 
 export default CounterRedux
+
+
+// In Redux, the state is always predictable. 
+// If the same state and action are passed to a reducer, 
+// the same result is always produced because reducers are pure functions.
+//  The state is also immutable and is never changed

@@ -6,17 +6,17 @@ import ContactInfo from './Pages/ContactInfo'
 import Home from './Pages/Home'
 import Navbar from './Pages/Navbar'
 import Users from './Pages/Users'
+import Signin from './ProductsApp/Users/Signin'
+import SignUp from './ProductsApp/Users/SignUp'
+import { ToastContainer } from "react-toastify";
 
 const ReactRouter = () => {
   return (
     <div className="text-center">
-      {/* <Navbar/> */}
-      <Routes >
-        {/* V5 */}
-        {/* <Route path='/' />  component={Home} */}
-        <Route path='/' element={<CounterRedux/>}/>
-        {/* <Route path='/users/' element={<Users/>}/>
-        <Route path='/contact' element={<ContactInfo/>}/> */}
+      <ToastContainer/>
+      <Routes >       
+        <Route path='/' element={<SignUp/>}/>
+        <Route path='/signin' element={<Signin/>}/>
       </Routes>
     </div>
   )

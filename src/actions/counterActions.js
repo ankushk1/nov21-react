@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT, RESET} from './Contants'
+import {INCREMENT, DECREMENT, RESET, SET_TODOS} from './Contants'
 
 
 export const IncrementCount = () => {
@@ -21,5 +21,4 @@ export const ResetCount = () => {
     type: RESET
   })
 }
-
 
