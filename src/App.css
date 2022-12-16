@@ -47,3 +47,8 @@
   background-color: black;
   color: white;
 }
+
+.create-btn{
+  position: absolute;
+  right: 50px;
+}

@@ -9,6 +9,8 @@ import Users from './Pages/Users'
 import Signin from './ProductsApp/Users/Signin'
 import SignUp from './ProductsApp/Users/SignUp'
 import { ToastContainer } from "react-toastify";
+import ProductList from './ProductsApp/Products/ProductList'
+import CreateProduct from './ProductsApp/Products/CreateProduct'
 
 const ReactRouter = () => {
   return (
@@ -17,6 +19,8 @@ const ReactRouter = () => {
       <Routes >       
         <Route path='/' element={<SignUp/>}/>
         <Route path='/signin' element={<Signin/>}/>
+        <Route path='/products' element={<ProductList/>}/>
+        <Route path='/create-product' element={<CreateProduct/>}/>
       </Routes>
     </div>
   )

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { signIn, signUp } from "../../utils/ApiUtils";
 import { useFromHook } from "../../utils/CustomHooks";
 import { error, success } from "../../utils/NotificationUtils";
@@ -6,12 +7,14 @@ import { error, success } from "../../utils/NotificationUtils";
 const Signin = () => {
   const { formInputs, onInputChange } = useFromHook();
 
+  const navigate = useNavigate();
   const onSignin = async () => {
     const apiResponse  = await signIn(formInputs);
     console.log(apiResponse);
     if(apiResponse.status === 200) {
       success(apiResponse.data.message);
       localStorage.setItem("jwt", apiResponse.data.token)
+      navigate('/products')
     } else{
       error(apiResponse.data.message);
     }
