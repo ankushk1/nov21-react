@@ -66,9 +66,9 @@ function App() {
       <Hover/> */}
       {/* <Todoss/>
       <Postss/> */}
-      <CounterRedux/>
-      <Todo/>
-     
+      {/* <CounterRedux/>
+      <Todo/> */}
+      <ComponentA />
     </div>
   );
 }

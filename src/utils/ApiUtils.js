@@ -80,3 +80,35 @@ export const getCategories= async () => {
     return err.response
   }
 }
+
+
+export const deleteProduct= async (id) => {
+  try{
+    const response = await axios({
+      method:"DELETE",
+      url:`${baseUrl}/product/deleteProduct/${id}`,
+      headers:{
+        "access-token": localStorage.getItem('jwt')
+      }
+    })
+    return response
+  } catch (err) {
+    return err.response
+  }
+}
+
+export const updateProduct = async (id, productData) => {
+  try{
+    const response = await axios({
+      method:"PUT",
+      url:`${baseUrl}/product/updateProduct/${id}`,
+      headers:{
+        "access-token": localStorage.getItem('jwt')
+      },
+      data: productData
+    })
+    return response
+  } catch (err) {
+    return err.response
+  }
+}

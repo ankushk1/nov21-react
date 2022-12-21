@@ -50,5 +50,10 @@
 
 .create-btn{
   position: absolute;
-  right: 50px;
+  right: 150px;
+}
+
+.signout-btn{
+    position: absolute;
+    right: 30px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { getProducts } from "../../utils/ApiUtils";
-import '../../App.css'
+import "../../App.css";
 import { useNavigate } from "react-router-dom";
 
 const ProductList = () => {
@@ -17,19 +17,47 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
+  const onRedirectDetails = (product) => {
+    navigate("/product-details", {
+      state: product
+    });
+  };
+
+  const onSignOut = () => {
+    localStorage.clear();
+    navigate("/signin");
+  };
+
   return (
     <div>
       <div className="fs-2">
         ProductList
-        <button className="create-btn btn btn-primary mt-2" onClick={() => navigate('/create-product')}>Create</button>
+        <button
+          className="create-btn btn btn-primary mt-2"
+          onClick={() => navigate("/create-product")}
+        >
+          Create
+        </button>
+        <button
+          className=" signout-btn btn btn-outline-danger mt-2"
+          onClick={() => onSignOut()}
+        >
+          Sign Out
+        </button>
         <div className=" container d-flex justify-content-around mt-4 flex-wrap ">
           {products.length > 0 &&
             products.map((product) => (
-              <div class="card my-2" style={{ width: "18rem" }}>
-                <div class="card-body">
-                  <h5 class="card-title">{product.name}</h5>
-                  <p class="card-text">{product.description}</p>
-                  <p class="card-text fs-4 text-success">{product.price}</p>
+              <div className="card my-2" style={{ width: "18rem" }}>
+                <div className="card-body">
+                  <h5 className="card-title">{product.name}</h5>
+                  <p className="card-text">{product.description}</p>
+                  <p className="card-text fs-4 text-success">{product.price}</p>
+                  <button
+                    className="btn btn-info mb-2 mt-3"
+                    onClick={() => onRedirectDetails(product)}
+                  >
+                    View Product
+                  </button>
                 </div>
               </div>
             ))}

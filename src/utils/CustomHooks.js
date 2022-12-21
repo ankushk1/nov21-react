@@ -15,7 +15,8 @@ export const useFromHook = () => {
   return {
     formInputs,
     onInputChange,
-    onSubmit
+    onSubmit,
+    setFromInputs
   };
 };
 
